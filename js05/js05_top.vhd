@@ -7,6 +7,7 @@ entity js05_top is
         btnU : in  STD_LOGIC;
         btnD : in  STD_LOGIC;
         btnC : in  STD_LOGIC;
+        sw0  : in  STD_LOGIC;
         seg  : out STD_LOGIC_VECTOR(6 downto 0);
         dp   : out STD_LOGIC;
         an   : out STD_LOGIC_VECTOR(3 downto 0)
@@ -26,7 +27,7 @@ begin
     edge_d: entity work.edge_detect port map (clk => clk, sig_in => d_clean, pulse => d_pulse);
 
     cntr: entity work.updown_counter
-        port map (clk => clk, rst => rst, inc => u_pulse, dec => d_pulse, count => count);
+        port map (clk => clk, rst => rst, inc => u_pulse and not sw0, dec => d_pulse and not sw0, count => count);
 
     disp: entity work.seven_seg_driver
         generic map (DIGITS => 4)
