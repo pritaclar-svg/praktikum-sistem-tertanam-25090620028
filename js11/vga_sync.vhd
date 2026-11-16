@@ -1,11 +1,3 @@
-----------------------------------------------------------------------------
--- JOBSHEET 11 - Antarmuka VGA: Video Sync Generator
--- File   : vga_sync.vhd
--- Fungsi : Membangkitkan sinyal Hsync, Vsync, video_on, serta pencacah
---          posisi piksel (h_count, v_count) untuk mode 640x480@60Hz.
--- Clock  : pclk = 25 MHz (pixel clock, hasil Clocking Wizard dari 100 MHz)
-----------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
